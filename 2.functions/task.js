@@ -29,7 +29,8 @@ function worker(arr) {
 function makeWork(arrOfArr, func) {
 	let max = -Infinity;
 	for (let i = 0; i < arrOfArr.length; i++) {
-		if (max < func(arrOfArr[i])) {
+		const funcResult = func(arrOfArr[i]);
+		if (funcResult > max) {
 			max = func(arrOfArr[i]);
 		}
 	}
@@ -38,5 +39,6 @@ function makeWork(arrOfArr, func) {
 
 // Задание 3
 function worker2(arr) {
-	return Math.abs(getArrayParams(arr).max - getArrayParams(arr).min);
+	const result = getArrayParams(arr);
+	return Math.abs(result.max - result.min);
 }
